@@ -1,0 +1,52 @@
+{
+  "checks": [
+    "WebGL rendering active",
+    "Simulation advances",
+    "Pause stops time",
+    "Speed control",
+    "Timeline seek",
+    "Orbit toggle",
+    "Label toggle",
+    "Cloud toggle",
+    "Camera view: solar",
+    "Camera view: moon",
+    "Camera view: earth",
+    "Reset timeline",
+    "OrbitControls remains rendering after drag and zoom",
+    "About dialog opens",
+    "Mobile has no horizontal overflow",
+    "No JavaScript errors",
+    "No failed requests"
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "final_state": {
+    "day": 0,
+    "playing": false,
+    "speed": 0.5,
+    "view": "earth",
+    "orbits": true,
+    "labels": true,
+    "clouds": true,
+    "phase": {
+      "fraction": 0.7387269647706975,
+      "elongation": 1.9930999573367671,
+      "name": "盈凸月"
+    },
+    "earth": [
+      160,
+      0,
+      0
+    ],
+    "moon": [
+      165.7188241723782,
+      -1.1459494004635002,
+      12.727209044287758
+    ],
+    "drawCalls": 7
+  },
+  "webgl": {
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "renderer": "WebKit WebGL"
+  }
+}

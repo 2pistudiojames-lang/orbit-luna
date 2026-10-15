@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080c12"><title>軌跡 ORBIT — 地月觀測站</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌗</text></svg>">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/controls/OrbitControls.js":"./vendor/OrbitControls.js"}}</script>
+</head>
+<body>
+<main id="app">
+<div id="space" aria-label="可拖曳旋轉的地球與月球三維模擬"></div>
+<header><a class="brand" href="./"><span class="brand-icon">◎</span><span>軌跡 <b>ORBIT</b></span></a><div class="header-middle">地球與月球的宇宙日常 <span>/</span> AN ORBITAL EXPLORER</div><button id="infoBtn" class="quiet">關於模擬 <span>↗</span></button></header>
+<section class="intro"><div class="eyebrow"><span class="live-dot"></span> EARTH–MOON OBSERVATORY</div><h1>引力之間，<br>循環不息。</h1><p>轉動視角，讓時間流動。<br>探索我們與月球的每一次相遇。</p><div class="view-tabs" role="group" aria-label="視角選擇"><button data-view="earth" class="active">地月系統</button><button data-view="solar">日地全景</button><button data-view="moon">近看月球</button></div></section>
+<aside class="observation"><div class="eyebrow">LIVE OBSERVATION <span>01</span></div><h2>月球觀測</h2><div class="phase-row"><canvas id="phase" width="120" height="120" aria-label="月相示意圖"></canvas><div><strong id="phaseName">—</strong><small>自地球看見的月相</small></div></div><div class="metric"><span>月面照亮比例</span><strong id="illumination">—</strong></div><div class="metric"><span>平均地月距離</span><strong>384,400 <small>km</small></strong></div><div class="metric"><span>月球恆星公轉週期</span><strong>27.32 <small>天</small></strong></div><div class="panel-note">月球同步自轉，因此總以同一面朝向地球。</div><div class="toggles"><label><span>顯示軌道</span><input id="orbits" type="checkbox" checked></label><label><span>天體標籤</span><input id="labels" type="checkbox" checked></label><label><span>地球雲層</span><input id="clouds" type="checkbox" checked></label></div></aside>
+<div id="earthLabel" class="body-label">地球 <span>EARTH</span></div><div id="moonLabel" class="body-label">月球 <span>MOON</span></div><div id="sunLabel" class="body-label">太陽 <span>SUN</span></div>
+<div class="scene-caption"><span class="cross">＋</span><div id="viewCaption">地月系統 <span> / EARTH–MOON SYSTEM</span></div></div>
+<div class="navigation"><button id="reset" title="重設視角" aria-label="重設視角">↺</button><button id="fullscreen" title="全螢幕" aria-label="全螢幕">⛶</button></div>
+<section class="timeline"><button id="play" class="play" aria-label="暫停模擬">Ⅱ</button><div class="time-block"><span class="eyebrow">SIMULATION TIME</span><strong>第 <span id="day">0.0</span> 天</strong></div><div class="scrub"><div class="scrub-head"><span>月球公轉進度</span><span id="orbitProgress">0%</span></div><input id="time" type="range" min="0" max="365.25" step="0.01" value="0" aria-label="模擬時間"><div class="scrub-ticks"><span>0 天</span><span>一年 / 365.25 天</span></div></div><div class="speed-block"><label for="speed">時間流速</label><select id="speed"><option value="0.1">0.1 天 / 秒</option><option value="0.5" selected>0.5 天 / 秒</option><option value="2">2 天 / 秒</option><option value="10">10 天 / 秒</option></select></div><button id="restart" class="quiet" title="重設模擬時間">歸零 ↺</button></section>
+<footer><span><i></i> THREE.JS · REAL-TIME 3D</span><span class="gesture">拖曳旋轉 <b>·</b> 滾輪縮放 <b>·</b> 右鍵平移</span><span>距離與太陽大小採示意比例</span></footer>
+<div id="loading"><div class="loading-ring"></div><strong>正在建立你的宇宙</strong><span id="loadStatus">載入地球與月球表面…</span></div>
+<dialog id="info"><form method="dialog"><button class="close" aria-label="關閉">×</button></form><div class="eyebrow">ABOUT THIS EXPLORER</div><h2>小小軌道，大大宇宙。</h2><p>以 Three.js 即時渲染的互動式地月模型。拖曳旋轉、滾輪縮放，或切換全景，觀察地球繞日與月球繞地的關係。</p><h3>模型如何運作</h3><ul><li>地球公轉：365.25 天；恆星自轉：約 23 小時 56 分。</li><li>月球公轉與自轉：27.3217 天；月相週期：約 29.53 天。</li><li>地軸傾角 23.44°，月球軌道傾角 5.145°。</li><li>地月半徑比例接近真實；為方便觀察，軌道距離與太陽尺寸經縮放，軌道以圓形近似。</li><li>月面照亮比例依日地月幾何計算；起始位置為設計值，不代表今天的天文星曆。不模擬攝動、橢圓軌道與日月食。</li></ul><p class="credits">引擎：Three.js（MIT）。地表素材：Three.js examples／行星紋理。所有資源本地儲存，啟動後不需外部 CDN。</p></dialog>
+</main><script type="module" src="app.js"></script>
+</body></html>

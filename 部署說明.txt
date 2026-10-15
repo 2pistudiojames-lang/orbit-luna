@@ -1,0 +1,33 @@
+軌跡 ORBIT — 地月觀測站部署說明
+
+【Windows 電腦】
+1. 將 ZIP 完整解壓縮，進入 ORBIT 資料夾（不可直接在 ZIP 裡執行）。
+2. 安裝 Python 3，安裝時勾選 Add Python to PATH。
+3. 雙擊 start.bat，使用 Chrome、Edge 或 Firefox 開啟 http://localhost:8788/。
+4. 保留命令視窗；若瀏覽器先開啟而暫時無法連線，稍候重新整理。
+5. 關閉服務：在命令視窗按 Ctrl+C。
+
+【macOS / Linux 或手動啟動】
+在解壓後 ORBIT 資料夾開啟終端機：
+python3 -m http.server 8788 --bind 127.0.0.1
+Windows 可改用：
+python -m http.server 8788 --bind 127.0.0.1
+瀏覽 http://localhost:8788/。
+
+【部署到現有網站伺服器】
+此專案為純靜態網站，不需 npm install 或 build。
+將 index.html、app.js、style.css、assets/、vendor/ 保持相對目錄結構，放入 Nginx、Apache、Caddy 或其他靜態網站主機。
+保留 vendor/LICENSE。伺服器須正確提供 JavaScript MIME type。
+所有執行所需的程式與紋理均已包含，不依賴外部 CDN。
+不要直接雙擊 index.html，請使用 HTTP/HTTPS 服務。
+
+【網路與安全】
+start.bat 綁定 0.0.0.0，可從同網路裝置以「該電腦的區域網路 IP:8788」連線，需防火牆允許。
+原 README 中的 IP 與 C:/AI/... 路徑是原開發電腦的歷史資訊，請勿直接套用到另一台電腦。
+Python http.server 適用於本機與可信任區域網路展示，不建議直接對外公開；公開部署請使用正式 Web Server 與 HTTPS。
+若 8788 已被占用，可改用其他連接埠（例如 8789），網址也要同步更改。
+
+【附帶檔案】
+保留完整來源、README、進度記錄、驗證腳本、歷史測試結果與截圖。
+驗證腳本使用原電腦的環境路徑，若要在新機執行自動測試，需自行安裝 Playwright 並調整腳本路徑；這些測試工具不影響網站正常使用。
+瀏覽器及顯示卡需支援 WebGL 2。

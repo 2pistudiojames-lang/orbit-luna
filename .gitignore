@@ -1,0 +1,14 @@
+# Credentials / runtime data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.db
+*.sqlite
+*.sqlite3
+credentials.json
+secrets.json
+__pycache__/
+*.pyc
+.DS_Store

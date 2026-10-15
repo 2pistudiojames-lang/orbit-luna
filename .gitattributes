@@ -1,0 +1,9 @@
+# Preserve original file bytes (CRLF batch files, vendor bundles).
+* -text
+
+# Windows batch file requires CRLF; treat CR as part of the line ending.
+start.bat whitespace=cr-at-eol,blank-at-eol,blank-at-eof,space-before-tab
+
+# Historical test capture and generated vendor bundle: never rewrite formatting.
+test-results.json whitespace=-trailing-space,cr-at-eol
+vendor/three.module.js -whitespace
